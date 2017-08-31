@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[Github + Hexo 实现的小 Blog]]></title>
+      <url>/2017/01/08/github%20+%20hexo%20%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%B0%8F%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<p><img src="http://wallions.com/wp-content/uploads/2016/03/5145-1000x625.jpg" alt=""></p>
+<p>用这个小白灯来祭奠我刚才打了半天的文章（没保存 = = 但也只能怪自己）<br>没什么东西好说的，第一篇文章来写写我做的这个小 blog 吧。<br>现在的时间 2016-11-1 22:31:00 这是准确意义上的第一篇文章，其实零零碎碎时间加起来还是蛮多的。</p>
+<h1 id="言归正传～-前言"><a href="#言归正传～-前言" class="headerlink" title="言归正传～ 前言"></a>言归正传～ 前言</h1><p>之前也用 wordpres 搭建过博客，也写了一点小东西，但是都草草结尾，做一个自己的 blog 是大一时候的想法，结果现在都大二了。。。。但不能再迟了，想把自己的想法和一些学习到的东西分享在这个 blog 开始吧。</p>
+<h2 id="推荐用-github-hexo-的原因"><a href="#推荐用-github-hexo-的原因" class="headerlink" title="推荐用 github + hexo 的原因"></a>推荐用 github + hexo 的原因</h2><ul>
+<li>用<a href="https://github.com/" target="_blank" rel="external">github</a> 的原因很简单，学习 git ，之后走上程序员道路比较习惯，而且免费开源。</li>
+<li>hexo 是大家的推荐，可以用 Markdown 写文章。</li>
+</ul>
+<h2 id="需要（最好）掌握的技能"><a href="#需要（最好）掌握的技能" class="headerlink" title="需要（最好）掌握的技能"></a>需要（最好）掌握的技能</h2><ul>
+<li>html 入门就行，要求很低，只要看的懂基本代码，ok了。不会也没事看看<a href="http://www.w3school.com.cn/h.asp" target="_blank" rel="external">w3c</a>.</li>
+<li>git 的基本使用，只要基本就行，不会也没事看看<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的教程</a>画个半天时间学习，应该就能掌握基本用法，我就是刚掌握的。</li>
+<li>Markdown 的使用，也只要基本使用就行，不会也就看看<a href="http://sspai.com/25137" target="_blank" rel="external">认识与入门 Markdown</a>，这个很快，花半小时应该就可以简单使用了。</li>
+</ul>
+<blockquote>
+<p>文中出现的命令，Windows用户注意，命令前面有 $ 的表示在Git Bash中执行，没有的在CMD命令窗口执行。<br>Linux和MAC系统在终端下不区分。<br>ps: 我是在 Linux 的环境下完成的</p>
+</blockquote>
+<h1 id="安装-Git-和使用-Github"><a href="#安装-Git-和使用-Github" class="headerlink" title="安装 Git 和使用 Github"></a>安装 Git 和使用 Github</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
+<p>Windows 用户在<a href="https://git-scm.com/" target="_blank" rel="external">官网</a>下载使用即可。<br><img src="/img/1-1.png" alt=""></p>
+<h2 id="注册-GitHub"><a href="#注册-GitHub" class="headerlink" title="注册 GitHub"></a>注册 GitHub</h2><ul>
+<li>打开GitHub官网：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></li>
+<li>填写注册信息进行注册操作：没有登录的用户打开网站首页就会显示注册的操作（如图所示），或者是点击 <strong>Sign up</strong> 按钮进入注册详情页。</li>
+<li>填写好注册信息，点击 <strong>Sign up for GitHub</strong> (注册)按钮后，接下来是选择协议部分。根据自己的情况选择相关的协议，一般人选的都是免费的那一项。</li>
+</ul>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><ul>
+<li>点击创建仓库：点击在右上边的+号和下三角符号按钮，点 <strong>new repository</strong>。<br><img src="/img/1-2.png" alt=""></li>
+<li>来写创建仓库信息：<br>仓库名称必须是用户名.github.io（就是这样规定的～），比如我的用户名是oldjohnh，就是oldjohnh.github.io。<br><img src="/img/1-3.png" alt=""></li>
+<li>创建仓库。</li>
+</ul>
+<h2 id="配置-SSH"><a href="#配置-SSH" class="headerlink" title="配置 SSH"></a>配置 SSH</h2><ul>
+<li>直接打开终端输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;你的GitHub用户名&quot;</div><div class="line">$ git config --global user.email &quot;你的GitHub注册邮箱&quot;</div><div class="line">$ ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>ps:<em>windows 用户可以在桌面右击”Git Bash here”的选项。</em><br>直接回车就行了，密码也按回车，好像按三下就行了。<br>然后你会发现在用户文件夹下有个.ssh 或者你发现不了，那就直接打开用户文件夹 <strong>/home/user/.ssh</strong> 里面有刚刚创建的 <strong>ssh</strong> 密钥文件 <strong>id_rsa</strong> 和 <strong>id_rsa.pub</strong>。</p>
+<ul>
+<li><p>添加公钥到github：<br>点击用户头像，然后点击显示的 <strong>Settings</strong> (设置)选项；<br>在用户设置栏，点击 <strong>SSH and GPG keys</strong> 选项，然后点击 <strong>New SSH key</strong> 按钮；<br><img src="/img/1-4.png" alt=""></p>
+</li>
+<li><p>测试SSH：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
+<p>会弹出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure>
+<p>输入 yes<br>最终输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi oldjohnh! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>那么你就成功了，接下去才是真正开始了。</p>
+<blockquote>
+<p>ps:id_rsa文件是私钥，要妥善保管，id_rsa.pub是公钥文件。</p>
+</blockquote>
+<h1 id="Hexxoo"><a href="#Hexxoo" class="headerlink" title="Hexxoo"></a>Hexxoo</h1><p>( ⊙ o ⊙ )啊！，标题好奇怪啊。</p>
+<h2 id="创建博客文件夹"><a href="#创建博客文件夹" class="headerlink" title="创建博客文件夹"></a>创建博客文件夹</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir blog</div><div class="line">cd blog # 切换到blog目录</div></pre></td></tr></table></figure>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g #安装Hexo</div><div class="line">hexo init #初始化Hexo</div><div class="line">npm install #安装依赖</div><div class="line">hexo server #启动Hexo</div></pre></td></tr></table></figure>
+<p>启动之后，打开浏览器，在地址栏输入：<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 或者 <a href="http://0.0.0.0:4000，" target="_blank" rel="external">http://0.0.0.0:4000，</a> 你会看到 Hexo 的示例页面。</p>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new test # hexo new &lt;title&gt;</div></pre></td></tr></table></figure>
+<p>  此时在 source_posts 文件夹中便会多出一个文档title.md.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean #清除生成内容 执行此操作会删除 public 文件夹中的内容。</div><div class="line">hexo generate #生成静态页面 生成的静态内容在 public 文件夹内。</div><div class="line">hexo deploy #部署Hexo</div></pre></td></tr></table></figure></p>
+<p>这时候，你再打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 你就会发现多了一篇 test 的文章。</p>
+<h2 id="调教-hexo"><a href="#调教-hexo" class="headerlink" title="调教 hexo"></a>调教 hexo</h2><ul>
+<li><p>编辑配置文件，关联远程仓库：<br>在编辑器中打开 Hexo 配置文件 _config.yml，找到下面内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type:</div></pre></td></tr></table></figure>
+<p>添加 github 仓库信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:oldjohnh/oldjohnh.github.io.git #github仓库地址</div><div class="line">branch: master # github分支</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装git插件 &amp;&amp; 部署</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行上面的命令。没有任何显示，这就对了，Unix 的哲学 <strong>是“没有消息就是好消息”</strong> ，部署就成功了，可以打开 http://&lt;用户名&gt;.github.io 查看。</p>
+<h2 id="hexo-命令组合"><a href="#hexo-命令组合" class="headerlink" title="hexo 命令组合"></a>hexo 命令组合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo clean &amp;&amp; hexo g -s，就是清除、生成、启动</div><div class="line">hexo clean &amp;&amp; hexo g -d，就是清除、生成、部署</div></pre></td></tr></table></figure>
+<p>非常常用的组合键～</p>
+<blockquote>
+<p>注意 type 和 repo 前面是有两个空格的</p>
+</blockquote>
+<h1 id="hexo配置文件说明"><a href="#hexo配置文件说明" class="headerlink" title="hexo配置文件说明"></a>hexo配置文件说明</h1><p>网站配置文件是在根目录下的 _config.yml 文件，是 yaml 格式的。<br>所有的配置项后面的冒号（:）与值之间要有一个空格。<br>可以参考<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">官方配置文件说明</a>，也可以参考下面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: https://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"></div><div class="line"># Site 网站信息</div><div class="line">title: 网站标题</div><div class="line">subtitle: 网站副标题</div><div class="line">description: 网站描述</div><div class="line">author: 网站作者名字</div><div class="line">language: #网站语言,默认是英语(en)</div><div class="line">timezone: #网站时区</div><div class="line"></div><div class="line"># URL 网站设置</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: seayxu.github.io #网站的地址</div><div class="line">root: / #网站的根目录，如果是子文件夹下，则填写子文件夹路径</div><div class="line">permalink: :year/:month/:day/:title/ #文章链接地址格式 </div><div class="line">permalink_defaults: </div><div class="line"></div><div class="line"># Directory 目录设置</div><div class="line">source_dir: source #资源文件夹，默认是source</div><div class="line">public_dir: public #公共文件夹，默认是public</div><div class="line">tag_dir: tags #标签文件夹，默认是tags</div><div class="line">archive_dir: archives #档案文件夹，默认是archives</div><div class="line">category_dir: categories #分类文件夹，默认是categories</div><div class="line">code_dir: downloads/code #代码文件夹，默认是downloads/code</div><div class="line">i18n_dir: :lang #国际化文件夹，默认跟language相同</div><div class="line">skip_render: [] #不需要渲染的文件夹或文件夹,放在[]中</div><div class="line"></div><div class="line"># Writing 文章写作选项</div><div class="line">new_post_name: :title.md # File name of new posts</div><div class="line">default_layout: post #默认布局模板</div><div class="line">titlecase: false # Transform title into titlecase</div><div class="line">external_link: true # Open external links in new tab</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">future: true</div><div class="line">highlight: #高亮显示</div><div class="line">  enable: true #默认开启</div><div class="line">  line_number: true #显示行号，默认开启</div><div class="line">  auto_detect: false</div><div class="line">  tab_replace:</div><div class="line"></div><div class="line"># Category &amp; Tag 分类和标签</div><div class="line">default_category: uncategorized #默认分类名称</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># Date / Time format #日期/时间格式</div><div class="line">## Hexo uses Moment.js to parse and display date</div><div class="line">## You can customize the date format as defined in</div><div class="line">## http://momentjs.com/docs/#/displaying/format/</div><div class="line">date_format: YYYY-MM-DD #日期格式</div><div class="line">time_format: HH:mm:ss #时间格式</div><div class="line"></div><div class="line"># Pagination #分页信息</div><div class="line">## Set per_page to 0 to disable pagination</div><div class="line">per_page: 10 #每页显示数量，设置为0表示不启用分页</div><div class="line">pagination_dir: page #分页文件夹名称</div><div class="line"></div><div class="line"># Extensions 扩展</div><div class="line">## Plugins: https://hexo.io/plugins/ #插件</div><div class="line">plugins:</div><div class="line">  hexo-generator-feed #RSS订阅插件</div><div class="line">  hexo-generator-sitemap  #sitemap插件</div><div class="line"></div><div class="line">## Themes: https://hexo.io/themes/ #主题</div><div class="line">theme: landscape #主体名称</div><div class="line"></div><div class="line"># Deployment 部署</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:SeayXu/seayxu.github.io.git #github仓库地址</div><div class="line">  branch: master # github分支</div></pre></td></tr></table></figure></p>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>默认的主题是landscape</p>
+<p>如果不喜欢，可以在网上找到自己喜欢的主题，作为自己的主题使用。<br>官方主题地址：<a href="https://hexo.io/themes/" target="_blank" rel="external">传送门</a></p>
+<h2 id="切换主题"><a href="#切换主题" class="headerlink" title="切换主题"></a>切换主题</h2><ul>
+<li><p>将找到的主题源码下载到 themes 文件夹中；<br>比如，jacman 主题在 github 上，通过克隆到 themes 中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/wuchong/jacman themes/jacman</div></pre></td></tr></table></figure>
+</li>
+<li><p>在配置 _config.yml 文件中修改主题配置，比如修改 theme: landscape 为 theme: jacman；</p>
+</li>
+<li>修改主题配置文件_config.yml，此配置文件在主题文件夹下面。<br>相关的配置信息可根据主题文档进行配置。</li>
+</ul>
+<hr>
+<p>好，终于结束了 = = 以后可以花一周写一篇 blog 一步一步慢慢来。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> blog </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[shadowsocksR 通过局域网实现 iOS 设备爬墙]]></title>
+      <url>/2016/11/03/shadowsocksR%20%E9%80%9A%E8%BF%87%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%9E%E7%8E%B0%20iOS%20%E8%AE%BE%E5%A4%87%E7%88%AC%E5%A2%99/</url>
+      <content type="html"><![CDATA[<p><img src="http://wallions.com/wp-content/uploads/2016/04/7041-1000x750.jpeg" alt=""></p>
+<p>每次写东西的时候都分享下的最近看到的图片吧，也当做一种收集吧。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>赚的第一笔钱是好久前了，一点感慨都没有，无非就是用自己廉价的劳动力去换一点钱，在银行的档案室里面整理着厚重的档案，如果现在的我过去，一定会狠狠的吐槽太老土。。。也曾管理过学校的办公室和实验室，无非都是体力劳动。第一次靠脑子赚钱或者说第一次靠技术赚钱，很惭愧，也就那么几块人民币，但是意义却不一样，这是真正意义上的第一次吧。说出是干什么的，也很惭愧，就是靠卖 ss ，有点尴尬，但慢慢来吧。</p>
+<h1 id="shadowsocksR-通过局域网实现-iOS-设备爬墙"><a href="#shadowsocksR-通过局域网实现-iOS-设备爬墙" class="headerlink" title="shadowsocksR 通过局域网实现 iOS 设备爬墙"></a>shadowsocksR 通过局域网实现 iOS 设备爬墙</h1><blockquote>
+<p>时至今日，发现很多技术公司的技术团队，竟然都依然不是标配 Mac。挺震惊讶的。<br>时至今日，有些技术团队还在用百度网盘，也极少使用 VPN ，甚至网络都是家庭 50MBps 的宽带，挺惊讶的。<br>时至今日。。。。</p>
+</blockquote>
+<p>我也不跟风吐槽了，最近出售了 ss ，有人问 iOS 设备怎么翻墙，也很简单。App Store 现在有一大批可以用于翻墙的工具，只不过要付费，无非就 10 元左右的 app ，有好多人就舍不得这几块钱，那么就来分享下一个简单一点的小方法。</p>
+<ol>
+<li>在电脑PC ，右键勾选小飞机的选择选项设置，如图:<br><img src="https://dotunnel.gitbooks.io/dotunnel-userguide/content/ios_xuanxiang.png" alt=""></li>
+<li>允许来自局域网的连接，如图:<br><img src="https://dotunnel.gitbooks.io/dotunnel-userguide/content/ios_daili.png" alt=""></li>
+<li>在 iPhone 或 iPad 上设置，无线局域网，选择自己的路由修改，如图:<br><img src="https://dotunnel.gitbooks.io/dotunnel-userguide/content/ios_daipeishezhi.png" alt=""><br><img src="/img/2-1.png" alt=""><br>然后就 ok 了，打开网页试试 youtube，google吧。</li>
+</ol>
+<h1 id="pc-的-ip-怎么获取"><a href="#pc-的-ip-怎么获取" class="headerlink" title="pc 的 ip 怎么获取"></a>pc 的 ip 怎么获取</h1><p>这是一个很简单的问题，可以通过很多方法获得，那就自己百度吧。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> ss </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[好久，终于有了这个简陋的Blog]]></title>
+      <url>/2016/10/30/%E5%A5%BD%E4%B9%85%EF%BC%8C%E7%BB%88%E4%BA%8E%E6%9C%89%E4%BA%86%E8%BF%99%E4%B8%AA%E7%AE%80%E9%99%8B%E7%9A%84blog/</url>
+      <content type="html"><![CDATA[<p>有点意思哈，还可以用 <a href="http://sspai.com/markdown-guide" target="_blank" rel="external">markdown</a> 来写东西，虽说没怎么学好，只会基本的使用，但慢慢来嘛（已经太迟了）。</p>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>demo 惯例～</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<h3 id="hexo命令组合"><a href="#hexo命令组合" class="headerlink" title="hexo命令组合"></a>hexo命令组合</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo clean &amp;&amp; hexo g <span class="_">-s</span>，就是清除、生成、启动</div><div class="line">hexo clean &amp;&amp; hexo g <span class="_">-d</span>，就是清除、生成、部署</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://www.jianshu.com/p/f4cc5866946b" target="_blank" rel="external">jianshu</a> &lt; 该死的简书 最后还要附上这个 link</p>
+]]></content>
+      
+        <categories>
+            
+            <category> blog </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title><![CDATA[Gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"><![CDATA[<p><img src="http://ove2oliz4.bkt.clouddn.com/17-8-31/55912761.jpg" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Links_test]]></title>
+      <url>/links/index.html</url>
+      <content type="html"><![CDATA[<p>#test links</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"><![CDATA[<p>#tavatv</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Timeline]]></title>
+      <url>/timeline/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
+</search>
