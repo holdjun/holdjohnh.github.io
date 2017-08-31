@@ -156,13 +156,6 @@
   
     
     <entry>
-      <title><![CDATA[Gallery]]></title>
-      <url>/gallery/index.html</url>
-      <content type="html"><![CDATA[<p><img src="http://ove2oliz4.bkt.clouddn.com/17-8-31/55912761.jpg" alt=""></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Links_test]]></title>
       <url>/links/index.html</url>
       <content type="html"><![CDATA[<p>#test links</p>
@@ -173,6 +166,13 @@
       <title><![CDATA[Tags]]></title>
       <url>/tags/index.html</url>
       <content type="html"><![CDATA[<p>#tavatv</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"><![CDATA[<p><img src="http://ove2oliz4.bkt.clouddn.com/17-8-31/55912761.jpg" alt=""></p>
 ]]></content>
     </entry>
     
